@@ -1,7 +1,7 @@
 <div class="container">
  <div class="row">
     <div class="col-md-12">
-      <h3>SuperSales</h3>
+      <h4>SuperSales</h4>
 
       <br>
     </div>
@@ -10,22 +10,23 @@
 
   <div class="row">
     <div class="col-md-12 text-center">
-     <img src="<%= asset_path "SmallCompany-logo.png" %>" >
+     <img src="<%= asset_path "SmallCompany-logo.png" %>" style="height:100px;">
      <hr>
       <br>
     </div>
   </div>
   <div class="row" style="margin-bottom:10px;">
-    <div class="col-md-6 ">
-      <input type="search" ng-model="q" placeholder="Search ..." class="form-control"/>
-    </div>
-    <div class="col-md-3 col-md-offset-1">
+      <div class="col-md-3">
       <a href="/contacts/new/"><i class="fa fa-plus-circle" style="color:#060"></i> New Contact </a>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <a href="/contacts/new/"><i class="fa fa-share-square"></i>
       Export</a>
     </div>
+    <div class="col-md-6 ">
+      <input type="search" ng-model="q" placeholder="Search ..." class="form-control"/>
+    </div>
+
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -46,9 +47,9 @@
           <tbody>
             <tr class="animate-repeat" ng-repeat="contact in contacts | filter:q as results">
               <td>
-              <span style="font-size:21px;">
+              
               <a href="/contacts/{{contact.id}}">{{contact.first_name}} {{contact.last_name}} </a>  
-</span>
+
               </td>
               <td>{{contact.company_name }}  </td>
               <td>

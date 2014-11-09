@@ -10,7 +10,11 @@ body{
 	background: #f6f6f6;
 	font-family: 'Montserrat', sans-serif;
 }
+#hoverUpload:hover{
 
+    background: #333;
+
+}
 .btn-green{
     background: $green;
     padding: 10px;
@@ -19,7 +23,7 @@ body{
 }
 
 .container{
-
+    max-width: 800px;
 	margin-top:20px;
     padding-bottom: 40px;
 	margin-bottom: 40px;
@@ -36,7 +40,13 @@ body{
     }
 
     th {
-        color:$green; 
+        color:#333;
+        font-weight: 600; 
+    }
+
+    tr {
+        font-weight: 300;
+        font-family: Helvetica;
     }
 
 }

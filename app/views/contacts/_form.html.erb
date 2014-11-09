@@ -13,46 +13,33 @@
 
   <div class="row">
   <div class="col-md-12 text-center">
+ 
+    <img src="<%= image_path "default-avatar.png" %>" class="img-circle img-thumbnail" id="hoverUpload" style="height:150px; margin-bottom:10px;">          
+  </div>
+
+
+  <div class="field">
+    
+    <%= f.text_field :first_name, :class => "form-control", :placeholder => "First Name" %>
+
+    <br>
+ 
+    <%= f.text_field :last_name, :class => "form-control", :placeholder => "Last Name" %>
+ <br> 
+    <%= f.text_field :email, :class => "form-control", :placeholder => "Email" %>
+<br>
+    <%= f.text_field :company_name , :class => "form-control", :placeholder => "Company Name" %>
+<br>
+    <%= f.text_area :notes , :class => "form-control", :placeholder => "Notes" %>
+<br>
+
    
-  <img src="<%= image_path "default-avatar.png" %>" class="img-circle img-thumbnail" style="height:150px;">
-
-      
+    <%= f.text_field :job_title , :class => "form-control", :placeholder => "Job Title" %>
+<br>
+    <%= f.text_field :telephone , :class => "form-control" ,:placeholder => "Telephone"  %>
   </div>
-
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name, :class => "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name, :class => "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, :class => "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :company_name %><br>
-    <%= f.text_field :company_name , :class => "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :notes %><br>
-    <%= f.text_area :notes , :class => "form-control" %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :job_title %><br>
-    <%= f.text_field :job_title , :class => "form-control" %>
-  <div class="field">
-    <%= f.label :telephone %><br>
-    <%= f.text_field :telephone , :class => "form-control" %>
-  </div>
-  <div class="actions">
+  <div class="actions text-center">
   <br>
-    <%= f.submit "Submit Contact", {:class => "btn btn-success btn-block" } %>
+    <%= f.submit "Submit Contact", {:class => "btn btn-green btn-success" } %>
   </div>
 <% end %>
