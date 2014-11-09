@@ -1,9 +1,8 @@
 <div class="container">
  <div class="row">
-  <div class="col-md-12">
-    <h4>SuperSales</h4>
-
-    <br>
+  <div class="col-md-3">
+   <br>
+    <img src="<%=asset_path "logo.png" %>" class="img-responsive" />
   </div>
 </div>
 
@@ -40,7 +39,7 @@
               <th>Company</th>
               <th>Phone</th>
               <th>Email</th>
-              <th>Notes</th>
+              <th>Activities</th>
             </tr>
           </thead>
           <tbody>
@@ -106,8 +105,8 @@
                               <br><br>
 
                               <a href="/contacts/{{contact.id}}" class="btn btn-default">View More</a>
-
-                              <% @contact = Contact.new  %>
+                              <br><br>
+                              <% @contact = Contact.find(2)  %>
                               <%= render "contacts/activity_feed" %>
 
 

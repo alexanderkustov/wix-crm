@@ -22,6 +22,10 @@
     <%= f.radio_button :activity_type, "Call", :checked => true  %>
     <i class="fa fa-phone"></i> Call
   </label>
+    <label>
+    <%= f.radio_button :activity_type, "Email", :checked => true  %>
+    <i class="fa fa-envelope"></i> Email
+  </label>
   <label>
     <%= f.radio_button(:activity_type, "Meeting") %>
     <i class="fa fa-user"></i> Meeting
