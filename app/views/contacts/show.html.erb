@@ -7,10 +7,18 @@
       <%= link_to 'Edit', edit_contact_path(@contact) %>
     </div>
     <div class="col-md-6 col-md-offset-3 text-center">
-      <img src="http://lorempixel.com/160/160/people/" class="img-circle img-responsive img-thumbnail">
+    <img src="http://lorempixel.com/160/160/people/" class="img-circle img-responsive img-thumbnail">
       <h1 style="font-style:italic;">
       <%= @contact.first_name %> <%= @contact.last_name %>
-      </h1>
+    <a href="https://twitter.com/search?q=<%= @contact.first_name %>%20<%= @contact.last_name %>&src=typd&mode=users"><img src="http://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/200px-Twitter_bird_logo_2012.svg.png" alt="" style="width:25px;height:25px"></a><a href="https://www.linkedin.com/vsearch/p?firstName=<%= @contact.first_name %>&lastName=<%= @contact.last_name %>&orig=SEO_SN&trk=SEO_SN&domainCountryName=&csrfToken=ajax%3A2771908671720635977"><img src="http://mlaw.umd.edu/wp-content/uploads/2014/09/linkedin-vector-080311.png" alt="" style="width:25px;height:25px"></a><a href="https://www.facebook.com/search/results/?init=quick&q=<%= @contact.first_name %>%20<%= @contact.last_name %>"><img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/10492975_10152642816026654_2746713892945057258_o.png?dl=1" alt="" style="width:25px;height:25px"></a><script type="text/javascript">
+var name="davidzm";
+
+if (name==""){}
+  else
+{
+document.write("<a href=\"skype:davidzm.hult?call\"><img src=\"..\/123.png\" alt=\"\" style=\"width:25px;height:25px\"><\/a>");
+}
+  </script></h1>
 
 
 
@@ -18,6 +26,17 @@
       <h3><%= @contact.job_title %> </h3>
       <h4>
       <%= @contact.company_name %>
+
+<script type="text/javascript">
+var name="<%= @contact.company_name %>";
+
+if (name==""){}
+  else
+{
+document.write("<a href=\"https://www.google.co.uk/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=<%= @contact.company_name %>\"><img src=\"..\/search1.png\" alt=\"\" style=\"width:25px;height:25px\"><\/a>");
+}
+  </script>
+
       </h4>
       <div class="row">
         <div class="col-md-12   text-left">
