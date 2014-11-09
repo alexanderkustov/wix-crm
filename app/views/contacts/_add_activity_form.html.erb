@@ -1,0 +1,44 @@
+<%= form_for [@contact, @activity] do |f| %>
+<% if @activity.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+  <ul>
+    <% @activity.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<br>
+<div class="field">
+  <%= f.text_area :description, :class => "form-control", :placeholder => "Record activity...", :style => "height:100px;" %>
+</div>
+
+<div class="field">
+  
+  <br>
+  <label>
+    <%= f.radio_button :activity_type, "Call", :checked => true  %>
+    <i class="fa fa-phone"></i> Call
+  </label>
+  <label>
+    <%= f.radio_button(:activity_type, "Meeting") %>
+    <i class="fa fa-user"></i> Meeting
+  </label>
+  
+  <label>
+    <%= f.radio_button(:activity_type, "Website Visit") %>
+    <i class="fa fa-globe"></i> Website Visit
+  </label>
+  
+</div>
+<br>
+<div class="field" style="display:none">
+  <%= f.label :contact_id %><br>
+  <%= f.number_field :contact_id, value: @contact.id %>
+</div>
+
+<%= f.submit "Add Activity", {:class => "btn btn-green"} %>
+
+<% end %>

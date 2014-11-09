@@ -7,6 +7,8 @@
 $green: #01A4A4;
 
 body{
+    text-rendering: optimizeLegibility;
+
 	background: #f6f6f6;
 	font-family: 'Montserrat', sans-serif;
 }
@@ -16,6 +18,18 @@ body{
 
 }
 
+.opacity50{
+    opacity: 0.25;
+}
+
+
+.opacity50:hover{
+    opacity: 1;
+}
+
+.our-green-a{
+    color: #01A4A4;
+}
 .our-green a i{
     color: #01A4A4;
 }

@@ -8,16 +8,15 @@
     </div>
     <div class="col-md-6 col-md-offset-3 text-center">
       <img src="http://lorempixel.com/160/160/people/" class="img-circle img-responsive img-thumbnail">
-      <h1 style="font-style:italic;">
+      <h3 style="font-style:italic;">
         <%= @contact.first_name %> <%= @contact.last_name %>
 
-      </h1>
+      </h3>
 
 
 
 
-    <h5><%= @contact.job_title %> </h5>
-    <h5><%= @contact.company_name %>
+    <h5><%= @contact.job_title %> | <%= @contact.company_name %>
     <a href="https://www.google.co.uk/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=<%= @contact.company_name %>">  <i class="fa fa-search"> </i> 
     </a>
     </h5>
@@ -26,11 +25,8 @@
         <div class="col-md-12   text-center">
 
           <p>
-            <strong><i class="fa fa-phone"> </i>       <a href="callto:<%= @contact.telephone %>"><%= @contact.telephone %></a>
-            </strong>
-          </p>
-          <p>
-            <strong><i class="fa fa-envelope-o"> </i>       <a href="mailto:<%= @contact.email %>"> <%= @contact.email %></a>
+            <strong>     <a href="callto:<%= @contact.telephone %>"><%= @contact.telephone %></a>
+            |     <a href="mailto:<%= @contact.email %>"> <%= @contact.email %></a>
             </strong>
           </p>
         </div>
@@ -40,11 +36,8 @@
   </div>
   <div class="row">
     <div class="col-md-8 col-md-offset-2 text-left">
-      <br>
-      
-      <h5>Recent Activity</h5>
-
-      <div class="col-md-12 text-right our-green" style="margin-top:-30px;"> 
+     
+      <span class="pull-right our-green"> 
   
 <a target="_blank" href="https://www.facebook.com/search/results/?init=quick&q=<%= @contact.first_name %>%20<%= @contact.last_name %>">
       <i class="fa fa-2x fa-facebook-square"> </i>
@@ -56,56 +49,37 @@
       </a>
     </a>
 
-</div>
+</span>
+      <h5>Recent Activity</h5>
+
+       <br>
       <% @contact.activities.order("updated_at DESC").first(2).each do |activity| %>
-      <div class="well">
+      <div class="well" style="margin-top:-13px;">
 <div class="row">
 
 </div>
+<a href="<%= @contact.id %>/activities/<%= activity.id %>/edit"><i class="fa fa-times pull-right our-green-a opacity50"></i>
+</a>
+ 
+<a href="<%= @contact.id %>/activities/<%= activity.id %>/edit"><i class="fa fa-pencil pull-right our-green-a opacity50"></i> 
+</a>
+
 
         <b><%= activity.activity_type %></b>
         <td><%= activity.description %></td>
         <br><br>
-        <i><%= activity.updated_at.strftime("%B %d") %></i>
+        <i class="our-green-a"><%= activity.updated_at.strftime("%B %d") %></i>
       </div >
-      <br>
+      
       <% end %>
 <div class="row">
 <div class="col-md-12" style="margin-top:-20px; margin-left:10px;" >
             <a href="<%= @contact.id %>/activities" >Show more</a>
             </div>
 </div>
-      <%= form_for [@contact, @activity] do |f| %>
-      <% if @activity.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
-        <ul>
-          <% @activity.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
      
-      <br>
-      <div class="field">
-        <%= f.text_area :description, :class => "form-control", :placeholder => "Record activity...", :style => "height:100px;" %>
-      </div>
+<%= render "contacts/add_activity_form" %>
 
-     
-      <div class="field">
-        <label>Choose the type of activity</label>
-        <%= f.select :activity_type, "<option>Call</option><option>Email</option><option>Meeting</option><option>Website Visit</option>".html_safe, {},  {:class => "form-control" }%>
-      </div>
-      <br>
-      <div class="field" style="display:none">
-        <%= f.label :contact_id %><br>
-        <%= f.number_field :contact_id, value: @contact.id %>
-      </div>
-      
-      <%= f.submit "Add Activity", {:class => "btn btn-info"} %>
-      
-      <% end %>
 
       <br>
       
