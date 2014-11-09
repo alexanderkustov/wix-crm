@@ -36,3 +36,18 @@ ella = Contact.create(first_name: 'Ella',
                company_name: 'callers academy',
                job_title: 'shot-caller',
                telephone: 015532123243)
+
+johnathan = Contact.create(first_name: 'Johnathan',
+               last_name: 'Hughes',
+               email: 'J.hughes@biggersound.com',
+               company_name: 'Bigger Sound llc',
+               job_title: 'London sales manager',
+               telephone: 02076645231)
+
+peter = Contact.create(first_name: 'peter',
+               last_name: 'reid',
+               email: 'peter.reid@h&mworks.com',
+               company_name: 'Humphry & Matthews works llc',
+               job_title: 'Purchasing manager',
+               telephone: 15602234254)
+

@@ -11,10 +11,6 @@
       <h1 style="font-style:italic;">
       <%= @contact.first_name %> <%= @contact.last_name %>
       </h1>
-
-
-
-
       <h3><%= @contact.job_title %> </h3>
       <h4>
       <%= @contact.company_name %>
@@ -60,14 +56,14 @@
         </ul>
       </div>
       <% end %>
-      <a href="#">See the rest of the activities</a>
-
+      <a href="<%= @contact.id %>/activities">See the rest of the activities</a>
       
-
-
       <br>
       <div class="field">
         <%= f.text_area :description, :class => "form-control", :placeholder => "Record activity...", :style => "height:100px;" %>
+      </div>
+
+            <div class="field">
       </div>
       <div class="field">
         <label>Choose the type of activity</label>
@@ -82,59 +78,12 @@
       <%= f.submit "Add Activity", {:class => "btn btn-info"} %>
       
       <% end %>
+
+      <br>
       
-      <% @months = []%>
-      <% @monthly_activities = @contact.activities.group_by { |t| t.updated_at.month }%>
-      <% @monthly_activities.each do |month, activity| %>
-      <% @monthly_activities[month].map do |activity|%>
-      <% @months << {month => activity}%>
-      <%end%>
-      <%end%>
-      <%@november =  @months.map {|h| h[11]}.uniq%>
-      <hr>
-      <div class="colorful" style="background-color:#999;  padding-top:100px; border-radius:4px; color: #fff; margin-right:20px;">
-
-        <div class="row text-center">
-          <div class="col-md-2"></div>
-          <div class="col-md-2"></div>
-          <div class="col-md-2"></div>
-
-          <div class="col-md-2"></div>
-          <div class="col-md-2"></div>
-
-          <div class="col-md-2" style="margin-left:-120px;">
-            <%  @november.sort_by {|activity| activity[:updated_at]}.each do |activity|%>
-
-
-            <p class="btn btn-default" title="<%= activity.description %>" rel="tooltip">
-
-            <%= activity.updated_at.day %>th 
-
-            </p>
-         
-            <%end%>
-          </div>
-        </div>
-
-        <div class="row text-center" style="position:absolute; bottom:0px; text-align:center; margin-left:10px;">
-          <div class="col-md-2">
-            <b> <%= Date::MONTHNAMES[Date.today.month - 5][0..2] %></b>
-          </div>
-          <div class="col-md-2">
-            <b> <%= Date::MONTHNAMES[Date.today.month - 4][0..2] %></b>
-          </div>
-          <div class="col-md-2"><b> <%= Date::MONTHNAMES[Date.today.month - 3][0..2] %></b></div>
-          <div class="col-md-2"><b> <%= Date::MONTHNAMES[Date.today.month - 2][0..2] %></b></div>
-          <div class="col-md-2"><b> <%= Date::MONTHNAMES[Date.today.month - 1][0..2] %></b></div>
-          <div class="col-md-2">
-            <b> <%= Date::MONTHNAMES[Date.today.month][0..2] %></b>
-          </div>
-        </div>
-
-        <br>
-      </div>
-
+      <%= render "contacts/activity_feed" %>
+      
     </div>
-    </div>
-    <br>
-    </div>
+  </div>
+  <br>
+</div>

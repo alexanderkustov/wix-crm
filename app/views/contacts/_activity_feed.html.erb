@@ -1,0 +1,50 @@
+<% @months = []%>
+<% @monthly_activities = @contact.activities.group_by { |t| t.updated_at.month }%>
+<% @monthly_activities.each do |month, activity| %>
+<% @monthly_activities[month].map do |activity|%>
+<% @months << {month => activity}%>
+<%end%>
+<%end%>
+<%@november =  @months.map {|h| h[11]}.uniq%>
+
+<div style="background:#eee; border-radius:4px; padding-top:20px; padding-bottom:10px;">
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+
+      <%  @november.sort_by {|activity| activity[:updated_at]}.each do |activity|%>
+
+      <p class="btn btn-default" title="Previous Activity: <br> <%= activity.description %>" rel="tooltip">
+      <%= activity.updated_at.day %>th
+      </p>
+      
+      <%end%>
+    </div>
+  </div>
+
+  <div class="row text-center" >
+
+    <div class="col-md-2">
+      <b> <%= Date::MONTHNAMES[Date.today.month - 5][0..2] %></b>
+    </div>
+    <div class="col-md-2">
+      <b> <%= Date::MONTHNAMES[Date.today.month - 4][0..2] %></b>
+    </div>
+
+    <div class="col-md-2"><b> <%= Date::MONTHNAMES[Date.today.month - 3][0..2] %></b></div>
+
+    <div class="col-md-2"><b> <%= Date::MONTHNAMES[Date.today.month - 2][0..2] %></b></div>
+    
+    <div class="col-md-2"><b> <%= Date::MONTHNAMES[Date.today.month - 1][0..2] %></b></div>
+    
+    <div class="col-md-2">
+      <b> <%= Date::MONTHNAMES[Date.today.month][0..2] %></b>
+    </div>
+ 
+  </div>
+</div>
