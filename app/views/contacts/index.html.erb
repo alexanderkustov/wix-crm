@@ -1,26 +1,26 @@
 <div class="container">
  <div class="row">
-    <div class="col-md-12">
-      <h4>SuperSales</h4>
+  <div class="col-md-12">
+    <h4>SuperSales</h4>
 
-      <br>
-    </div>
+    <br>
   </div>
+</div>
 
 
-  <div class="row">
-    <div class="col-md-12 text-center">
-     <img src="<%= asset_path "SmallCompany-logo.png" %>" style="height:100px;">
-     <hr>
-      <br>
-    </div>
+<div class="row">
+  <div class="col-md-12 text-center">
+   <img src="<%= asset_path "SmallCompany-logo.png" %>" style="height:100px;">
+   <hr>
+   <br>
+ </div>
+</div>
+<div class="row" style="margin-bottom:10px;">
+  <div class="col-md-3">
+    <a href="/contacts/new/"><i class="fa fa-plus-circle" style="color:#060"></i> New Contact </a>
   </div>
-  <div class="row" style="margin-bottom:10px;">
-      <div class="col-md-3">
-      <a href="/contacts/new/"><i class="fa fa-plus-circle" style="color:#060"></i> New Contact </a>
-    </div>
-    <div class="col-md-3">
-      <a href="/contacts/new/"><i class="fa fa-share-square"></i>
+  <div class="col-md-3">
+    <a href="/contacts/new/"><i class="fa fa-share-square"></i>
       Export</a>
     </div>
     <div class="col-md-6 ">
@@ -36,8 +36,7 @@
           <thead>
             <tr>
               <th>Contact</th>
-              
-              
+        
               <th>Company</th>
               <th>Phone</th>
               <th>Email</th>
@@ -47,89 +46,87 @@
           <tbody>
             <tr class="animate-repeat" ng-repeat="contact in contacts | filter:q as results">
               <td>
-              
-              <a href="/contacts/{{contact.id}}">{{contact.first_name}} {{contact.last_name}} </a>  
+
+                <a href="/contacts/{{contact.id}}">{{contact.first_name}} {{contact.last_name}} </a>  
 
               </td>
               <td>{{contact.company_name }}  </td>
               <td>
-<a href="callto:{{contact.telephone }} ">
-              {{contact.telephone }} 
+              <a href="callto:{{contact.telephone }} " class="grey">
+                  {{contact.telephone }} 
 
-              </a> </td>
-              
-              <td> <a href="mailto:{{contact.email }}">{{contact.email }}</a> </td>
-              
-              <td>
-              
-              <a href="#" remote="true" data-toggle="modal" data-target="#modal-window{{contact.id}} " data-backdrop="true"> 
-                  <i class="fa fa-file"></i>
-              </a>
-              
-  <!-- modal -->
-  <div class="modal fade" id="modal-window{{contact.id}}">
-    <div class="modal-dialog" >
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
-          <h3 class="modal-title text-center">{{contact.first_name}} {{contact.last_name}}</h3>
-        </div>
-        <div class="modal-body">
-<div class="row text-center">
-          <div class="col-md-6 col-md-offset-3">
-            <img src="http://lorempixel.com/160/160/people/" class="img-circle img-responsive img-thumbnail">
-<br>
-<br>
-<div class="text-left">
-<div class="row">
-<div class="col-md-4">
-     <b>Company</b>   
-     <br>
-<b>Telephone</b>
-<br>
-<b>Email</b>
-<br>
-<b>Job Title</b>
+                </a> </td>
 
-     </div> 
-     <div class="col-md-8">
- 
-{{contact.company_name }}
-<br>
-{{contact.telephone }}
+                <td> <a href="mailto:{{contact.email }}" class="grey" >{{contact.email }}</a> </td>
 
-{{contact.email }}
+                <td>
 
-{{contact.job_title }}
-</div>
-<br>
-</div>
-<br><br>
+                  <a href="#" remote="true" data-toggle="modal" data-target="#modal-window{{contact.id}} " data-backdrop="true"> 
+                    <i class="fa fa-file grey"></i>
+                  </a>
 
-<a href="/contacts/{{contact.id}}" class="btn btn-default">View More</a>
+                  <!-- modal -->
+                  <div class="modal fade" id="modal-window{{contact.id}}">
+                    <div class="modal-dialog" >
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+                          <h3 class="modal-title text-center">{{contact.first_name}} {{contact.last_name}}</h3>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row text-center">
+                            <div class="col-md-6 col-md-offset-3">
+                              <img src="http://lorempixel.com/160/160/people/" class="img-circle img-responsive img-thumbnail">
+                              <br>
+                              <br>
+                              <div class="text-left">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                   <b>Company</b>   
+                                   <br>
+                                   <b>Telephone</b>
+                                   <br>
+                                   <b>Email</b>
+                                   <br>
+                                   <b>Job Title</b>
 
-<% @contact = Contact.new  %>
-<%= render "contacts/activity_feed" %>
+                                 </div> 
+                                 <div class="col-md-8">
 
+                                  {{contact.company_name }}
+                                  <br>
+                                  {{contact.telephone }}
 
+                                  {{contact.email }}
+
+                                  {{contact.job_title }}
+                                </div>
+                                <br>
+                              </div>
+                              <br><br>
+
+                              <a href="/contacts/{{contact.id}}" class="btn btn-default">View More</a>
+
+                              <% @contact = Contact.new  %>
+                              <%= render "contacts/activity_feed" %>
 
 
 
-</div>
-</div>
-</div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  <!-- /.modal -->
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- /.modal -->
 
 
               </td>
-              <td>
-                
-              </td>
+             
             </tr>
             <li class="animate-repeat" ng-if="results.length == 0">
               <strong>No results found...</strong>
