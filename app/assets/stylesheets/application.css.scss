@@ -4,17 +4,41 @@
 @import "font-awesome";
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 
+$green: #01A4A4;
+
 body{
 	background: #f6f6f6;
 	font-family: 'Montserrat', sans-serif;
 }
 
+.btn-green{
+    background: $green;
+    padding: 10px;
+    color:#fff;
+    border-radius: 8px;
+}
+
 .container{
+
 	margin-top:20px;
+    padding-bottom: 40px;
 	margin-bottom: 40px;
 	background: #fff;
 	box-shadow: 0px 0px 11px #888;
 	border-radius: 4px;
+
+    label{
+        color: #01A4A4;
+    }
+
+    .page-header{
+        color:#49BCBC
+    }
+
+    th {
+        color:$green; 
+    }
+
 }
 
 

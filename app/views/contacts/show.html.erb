@@ -1,57 +1,34 @@
 <div class="container">
   <div class="row" style="margin-top:10px;">
     <div class="col-md-6 text-left">
-      <%= link_to 'Back to Contacts', contacts_path %>
+      <%= link_to 'Back to Contacts', contacts_path, :class => "btn btn-default btn-green" %>
     </div>
     <div class="col-md-6 text-right">
-      <%= link_to 'Edit', edit_contact_path(@contact) %>
+      <%= link_to 'Edit', edit_contact_path(@contact), :class => "btn btn-default btn-green" %>
     </div>
     <div class="col-md-6 col-md-offset-3 text-center">
-    <img src="http://lorempixel.com/160/160/people/" class="img-circle img-responsive img-thumbnail">
+      <img src="http://lorempixel.com/160/160/people/" class="img-circle img-responsive img-thumbnail">
       <h1 style="font-style:italic;">
-      <%= @contact.first_name %> <%= @contact.last_name %>
-<<<<<<< HEAD
+        <%= @contact.first_name %> <%= @contact.last_name %>
+
       </h1>
-=======
-    <a href="https://twitter.com/search?q=<%= @contact.first_name %>%20<%= @contact.last_name %>&src=typd&mode=users"><img src="http://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/200px-Twitter_bird_logo_2012.svg.png" alt="" style="width:25px;height:25px"></a><a href="https://www.linkedin.com/vsearch/p?firstName=<%= @contact.first_name %>&lastName=<%= @contact.last_name %>&orig=SEO_SN&trk=SEO_SN&domainCountryName=&csrfToken=ajax%3A2771908671720635977"><img src="http://mlaw.umd.edu/wp-content/uploads/2014/09/linkedin-vector-080311.png" alt="" style="width:25px;height:25px"></a><a href="https://www.facebook.com/search/results/?init=quick&q=<%= @contact.first_name %>%20<%= @contact.last_name %>"><img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/10492975_10152642816026654_2746713892945057258_o.png?dl=1" alt="" style="width:25px;height:25px"></a><script type="text/javascript">
-var name="davidzm";
-
-if (name==""){}
-  else
-{
-document.write("<a href=\"skype:davidzm.hult?call\"><img src=\"..\/123.png\" alt=\"\" style=\"width:25px;height:25px\"><\/a>");
-}
-  </script></h1>
 
 
 
 
->>>>>>> 00c5bb7a37eb38218b3df6b906709b3401606d50
-      <h3><%= @contact.job_title %> </h3>
-      <h4>
-      <%= @contact.company_name %>
-
-<script type="text/javascript">
-var name="<%= @contact.company_name %>";
-
-if (name==""){}
-  else
-{
-document.write("<a href=\"https://www.google.co.uk/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=<%= @contact.company_name %>\"><img src=\"..\/search1.png\" alt=\"\" style=\"width:25px;height:25px\"><\/a>");
-}
-  </script>
-
-      </h4>
+    <h3><%= @contact.job_title %> </h3>
+    <h4><%= @contact.company_name %> </h4>
+    
       <div class="row">
         <div class="col-md-12   text-left">
-          
+
           <p>
-          <strong><i class="fa fa-phone"> </i>       <a href="callto:<%= @contact.telephone %>"><%= @contact.telephone %></a>
-          </strong>
+            <strong><i class="fa fa-phone"> </i>       <a href="callto:<%= @contact.telephone %>"><%= @contact.telephone %></a>
+            </strong>
           </p>
           <p>
-          <strong><i class="fa fa-envelope-o"> </i>       <a href="mailto:<%= @contact.email %>"> <%= @contact.email %></a>
-          </strong>
+            <strong><i class="fa fa-envelope-o"> </i>       <a href="mailto:<%= @contact.email %>"> <%= @contact.email %></a>
+            </strong>
           </p>
         </div>
         
@@ -63,15 +40,38 @@ document.write("<a href=\"https://www.google.co.uk/webhp?sourceid=chrome-instant
       <br>
       
       <h5>Recent Activity</h5>
+
+      <div class="col-md-12 text-right" style="margin-top:-30px;"> 
+  
+<a target="_blank" href="https://www.facebook.com/search/results/?init=quick&q=<%= @contact.first_name %>%20<%= @contact.last_name %>">
+      <i class="fa fa-2x fa-facebook-square"> </i>
+</a>
+
+      <a target="_blank" href="https://www.facebook.com/search/results/?init=quick&q=<%= @contact.first_name %>%20<%= @contact.last_name %>"> <a target="_blank" href="https://twitter.com/search?q=<%= @contact.first_name %>%20<%= @contact.last_name %>&src=typd&mode=users"> <i class="fa fa-2x fa-twitter-square"> </i>
+      </a>
+      <a target="_blank" href="https://www.linkedin.com/vsearch/p?firstName=<%= @contact.first_name %>&lastName=<%= @contact.last_name %>&orig=SEO_SN&trk=SEO_SN&domainCountryName=&csrfToken=ajax%3A2771908671720635977"> <i class="fa fa-2x fa-linkedin-square"> </i>
+      </a>
+    </a>
+
+</div>
       <% @contact.activities.order("updated_at DESC").first(2).each do |activity| %>
       <div class="well">
+<div class="row">
+
+</div>
+
         <b><%= activity.activity_type %></b>
         <td><%= activity.description %></td>
         <br><br>
         <i><%= activity.updated_at.strftime("%B %d") %></i>
       </div >
+      <br>
       <% end %>
-      
+<div class="row">
+<div class="col-md-12" style="margin-top:-20px; margin-left:10px;" >
+            <a href="<%= @contact.id %>/activities" >Show more</a>
+            </div>
+</div>
       <%= form_for [@contact, @activity] do |f| %>
       <% if @activity.errors.any? %>
       <div id="error_explanation">
@@ -83,15 +83,13 @@ document.write("<a href=\"https://www.google.co.uk/webhp?sourceid=chrome-instant
         </ul>
       </div>
       <% end %>
-      <a href="<%= @contact.id %>/activities">See the rest of the activities</a>
-      
+     
       <br>
       <div class="field">
         <%= f.text_area :description, :class => "form-control", :placeholder => "Record activity...", :style => "height:100px;" %>
       </div>
 
-            <div class="field">
-      </div>
+     
       <div class="field">
         <label>Choose the type of activity</label>
         <%= f.select :activity_type, "<option>Call</option><option>Email</option><option>Meeting</option><option>Website Visit</option>".html_safe, {},  {:class => "form-control" }%>

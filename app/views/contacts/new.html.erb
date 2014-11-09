@@ -1,11 +1,15 @@
 <div class="container">
-
 <div class="row">
-<div class="col-md-8 col-md-offset-2">
-<h1> Enter your information</h1>
-<%= render 'form' %>
+	<div class="co-md-3 col-md-offset-2">
+<br>
+<%= link_to 'Back', contacts_path, :class => "btn btn-default" %>
+	</div>
+</div>
+<div class="row">
 
-<%= link_to 'Back', contacts_path %>
+<div class="col-md-8 col-md-offset-2">
+<h1 class="page-header text-center"> New Contact Form</h1>
+<%= render 'form' %>
 
 </div>
 </div>

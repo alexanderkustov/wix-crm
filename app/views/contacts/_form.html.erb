@@ -11,10 +11,14 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-      <%= f.label "Photo" %><br>
-      <%= f.file_field :first_name %>
+  <div class="row">
+  <div class="col-md-12 text-center">
+   
+  <img src="<%= image_path "default-avatar.png" %>" class="img-circle img-thumbnail" style="height:150px;">
+
+      
   </div>
+
 
   <div class="field">
     <%= f.label :first_name %><br>

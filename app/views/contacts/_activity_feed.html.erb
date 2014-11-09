@@ -19,7 +19,7 @@
 
       <%  @november.sort_by {|activity| activity[:updated_at]}.each do |activity|%>
 
-      <p class="btn btn-default" title="Previous Activity: <br> <%= activity.description %>" rel="tooltip">
+      <p class="btn btn-default" title="<h4>Previous Activity: </h4><br> <%= activity.description %>" rel="tooltip">
       <%= activity.updated_at.day %>th
       </p>
       

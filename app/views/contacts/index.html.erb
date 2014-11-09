@@ -45,11 +45,19 @@
           </thead>
           <tbody>
             <tr class="animate-repeat" ng-repeat="contact in contacts | filter:q as results">
-              <td><a href="/contacts/{{contact.id}}">{{contact.first_name}} {{contact.last_name}} </a>  </td>
+              <td>
+              <span style="font-size:21px;">
+              <a href="/contacts/{{contact.id}}">{{contact.first_name}} {{contact.last_name}} </a>  
+</span>
+              </td>
               <td>{{contact.company_name }}  </td>
-              <td>{{contact.telephone }}  </td>
+              <td>
+<a href="callto:{{contact.telephone }} ">
+              {{contact.telephone }} 
+
+              </a> </td>
               
-              <td>{{contact.email }} </td>
+              <td> <a href="mailto:{{contact.email }}">{{contact.email }}</a> </td>
               
               <td>
               
@@ -99,7 +107,7 @@
 
 <a href="/contacts/{{contact.id}}" class="btn btn-default">View More</a>
 
-<% @contact = Contact.find(1)  %>
+<% @contact = Contact.new  %>
 <%= render "contacts/activity_feed" %>
 
 
