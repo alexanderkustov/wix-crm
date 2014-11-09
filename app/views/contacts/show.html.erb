@@ -16,14 +16,14 @@
 
 
 
-    <h3><%= @contact.job_title %> </h3>
-    <h4><%= @contact.company_name %>
+    <h5><%= @contact.job_title %> </h5>
+    <h5><%= @contact.company_name %>
     <a href="https://www.google.co.uk/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=<%= @contact.company_name %>">  <i class="fa fa-search"> </i> 
     </a>
-    </h4>
+    </h5>
     
       <div class="row">
-        <div class="col-md-12   text-left">
+        <div class="col-md-12   text-center">
 
           <p>
             <strong><i class="fa fa-phone"> </i>       <a href="callto:<%= @contact.telephone %>"><%= @contact.telephone %></a>
@@ -44,7 +44,7 @@
       
       <h5>Recent Activity</h5>
 
-      <div class="col-md-12 text-right" style="margin-top:-30px;"> 
+      <div class="col-md-12 text-right our-green" style="margin-top:-30px;"> 
   
 <a target="_blank" href="https://www.facebook.com/search/results/?init=quick&q=<%= @contact.first_name %>%20<%= @contact.last_name %>">
       <i class="fa fa-2x fa-facebook-square"> </i>

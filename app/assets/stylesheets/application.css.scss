@@ -2,7 +2,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url(http://fonts.googleapis.com/css?family=Montserrat|Open+Sans);
 
 $green: #01A4A4;
 
@@ -15,6 +15,11 @@ body{
     background: #333;
 
 }
+
+.our-green a i{
+    color: #01A4A4;
+}
+
 .btn-green{
     background: $green;
     padding: 10px;
@@ -41,12 +46,13 @@ body{
 
     th {
         color:#333;
-        font-weight: 600; 
+        font-weight: 600;
+
     }
 
     tr {
         font-weight: 300;
-        font-family: Helvetica;
+        font-family: Open Sans, Helvetica, Arial, sans-serif;
     }
 
 }
